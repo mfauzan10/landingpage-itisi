@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITISI - Future Tech Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d2ff; /* Cyan Neon */
+            --secondary: #3a7bd5;
+            --dark-bg: #0a0a0a;
+            --card-bg: #161616;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- Header / Hero --- */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-neon {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .btn-neon:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 100px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* --- Apa yg Dikerjakan (Services) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* --- Daftar Pegawai (Team) --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            position: relative;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: 0.5s;
+            filter: grayscale(100%);
+        }
+
+        .team-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: -100%; /* Hidden initially */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s ease-in-out;
+            text-align: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .team-card:hover .team-info {
+            bottom: 0;
+        }
+
+        .team-info h3 { color: var(--primary); margin-bottom: 5px; }
+        .team-info span { font-size: 0.9rem; color: #fff; margin-bottom: 15px; display: block; }
+        .team-info p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 20px; }
+        
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--primary); }
+
+        /* --- Contact Us --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-info, .contact-map {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .info-item h4 { margin-bottom: 5px; }
+        .info-item p { color: var(--text-gray); }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg); /* Dark mode map styling */
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #000;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for demo, ideally hamburger menu */
+            header h1 { font-size: 2.5rem; }
+            section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ITISI<span>.TECH</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#team">Pegawai</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-blue-circuit-lines-98-large.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>We Build The Future</h1>
+            <p>Solusi teknologi terdepan untuk transformasi digital bisnis Anda. Dari integrasi sistem hingga pengembangan multimedia.</p>
+            <button class="btn-neon" onclick="location.href='#contact'">Start Project</button>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Apa Yang Dikerjakan</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-network-wired service-icon"></i>
+                <h3>Bridging System</h3>
+                <p>Integrasi seamless antar sistem (API/V-Claim) untuk efisiensi data rumah sakit dan perusahaan.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-code service-icon"></i>
+                <h3>Software Dev</h3>
+                <p>Pengembangan aplikasi berbasis web dan desktop yang custom sesuai kebutuhan bisnis yang kompleks.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-server service-icon"></i>
+                <h3>Networking</h3>
+                <p>Perancangan infrastruktur jaringan, keamanan data, dan maintenance server yang handal.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-mobile-alt service-icon"></i>
+                <h3>Mobile Apps</h3>
+                <p>Pembuatan aplikasi Android & iOS dengan UI/UX modern dan performa tinggi.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-photo-video service-icon"></i>
+                <h3>Multimedia</h3>
+                <p>Desain grafis, video editing, dan konten kreatif digital untuk branding perusahaan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Pasukan Kami</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://ipde.rssoedonomadiun.co.id/itisi/images/sigit.jpg" alt="CEO">
+                <div class="team-info">
+                    <h3>Sigit Robiyanto</h3>
+                    <span>Head of ITISI</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://ipde.rssoedonomadiun.co.id/itisi/images/TOFIK.jpg" alt="Network Administration">
+                <div class="team-info">
+                    <h3>Tofik</h3>
+                    <span>Senior Network Engineer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://ipde.rssoedonomadiun.co.id/itisi/images/syarif.jpg" alt="Fullstack Developer">
+                <div class="team-info">
+                    <h3>Muhammad Syarifuddin</h3>
+                    <span>Senior Fullstack Developer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="fauzan.jpg" alt="Junior Fullstack">
+                <div class="team-info">
+                    <h3>Muhammad Fauzan</h3>
+                    <span>Junior Fullstack Developer</span>
+                    <p>"Alon-alon Waton Kelakon"</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Hubungi Kami</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="contact-container" data-aos="flip-up">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Lokasi</h4>
+                        <p>Jl. Teknologi Masa Depan No. 101, Jakarta Selatan, Indonesia</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>hello@itisi.tech</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Telepon</h4>
+                        <p>+62 812 3456 7890</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Jam Kerja</h4>
+                        <p>Senin - Jumat (09:00 - 17:00)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.052136052723!2d106.8249646!3d-6.2568607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3d32fe5e3d7%3A0xf633f86e0176378e!2sJakarta!5e0!3m2!1sen!2sid!4v1629876543210!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Copyrights by ITISI 2025. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animation on Scroll
+        AOS.init({
+            once: true, // Animasi hanya terjadi sekali saat scroll
+            offset: 100,
+            duration: 800,
+        });
+
+        // Simple Sticky Navbar Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = "rgba(10, 10, 10, 0.95)";
+                nav.style.padding = "15px 50px";
+            } else {
+                nav.style.background = "rgba(10, 10, 10, 0.8)";
+                nav.style.padding = "20px 50px";
+            }
+        });
+    </script>
+</body>
+</html>
