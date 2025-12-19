@@ -437,6 +437,149 @@
             .team-info h3 { font-size: 0.9rem; }
             .team-info p { display: none; } /* Sembunyikan quote di HP */
         }
+
+        /* --- OUR MEMORIES (REVISI FIX) --- */
+        #memories {
+            padding: 100px 50px;
+        }
+
+        .memories-grid {
+            display: flex;
+            justify-content: center; 
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1400px; /* Samakan dengan team-grid */
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .memory-card {
+            /* Kunci 3 kolom: (100% / 3) - gap */
+            flex: 0 1 calc(33.333% - 20px);
+            min-width: 300px;
+            aspect-ratio: 16 / 9; /* Bentuk memanjang cinematic */
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #000;
+        }
+
+        /* Styling Gambar */
+        .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease-in-out;
+            display: block;
+        }
+
+        /* Overlay Hitam Transparan */
+        /* .memory-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: 0.4s ease;
+            z-index: 2;
+        }
+
+        .memory-overlay p {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transform: translateY(20px);
+            transition: 0.4s ease;
+        } */
+
+        /* --- LOGIKA HOVER SAKTI --- */
+        /* .memory-card:hover img {
+            transform: scale(1.2); 
+            filter: blur(2px) brightness(0.5);
+        }
+
+        .memory-card:hover .memory-overlay {
+            opacity: 1;
+        }
+
+        .memory-card:hover .memory-overlay p {
+            transform: translateY(0); 
+        } */
+
+        /* TAMPILAN BARU */
+        .memory-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            /* Background sedikit lebih gelap agar teks kecil terbaca jelas */
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            
+            /* HAPUS flex centering (align-items & justify-content) yang lama */
+            /* display: flex; align-items: center; justify-content: center; */
+            
+            padding: 20px; /* Padding sebagai jarak aman dari pinggir */
+            opacity: 0; /* Sembunyi saat tidak di-hover */
+            transition: 0.4s ease;
+            z-index: 2;
+        }
+
+        /* Teks Paragraf Kegiatan */
+        .memory-overlay p {
+            color: var(--primary);
+            font-weight: 600;
+            text-align: left; /* Rata kiri */
+            margin: 0;
+
+            /* Posisi Absolute di Pojok Kiri Bawah */
+            position: absolute;
+            bottom: 20px; /* Jarak dari bawah sesuai padding overlay */
+            left: 20px;   /* Jarak dari kiri sesuai padding overlay */
+            right: 20px;  /* Batas kanan agar teks tidak keluar kotak */
+
+            /* Keadaan Awal (Sebelum Hover) */
+            font-size: 1.1rem; /* Ukuran sedikit besar */
+            transform: translateY(30px); /* Posisi sedikit di bawah */
+            opacity: 0; /* Transparan */
+            
+            /* Transisi halus untuk semua perubahan (posisi, ukuran, opacity) */
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
+        }
+
+        /* --- TRIGGER HOVER --- */
+        .memory-card:hover .memory-overlay {
+            opacity: 1; /* Overlay muncul */
+        }
+
+        .memory-card:hover .memory-overlay p {
+            /* Keadaan Setelah Hover */
+            transform: translateY(0); /* Naik ke posisi aslinya di pojok kiri bawah */
+            opacity: 1; /* Muncul */
+            
+            /* PERKECIL UKURAN FONT SAAT HOVER DI SINI */
+            font-size: 0.85rem; 
+        }
+
+        /* --- RESPONSIVE MEMORIES --- */
+        @media (max-width: 1024px) {
+            .memory-card {
+                flex: 0 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .memory-card {
+                flex: 0 1 100%; 
+                aspect-ratio: 4 / 3; 
+            }
+        }
         
         .social-icons a {
             color: #fff;
@@ -476,6 +619,43 @@
             text-align: center;
         }
 
+        /* --- Update Social Media di Contact Us --- */
+        .social-contact {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-contact a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Hover Effect: Glow sesuai warna brand medsos */
+        .social-contact a.ig-link:hover {
+            color: #E1306C;
+            border-color: #E1306C;
+            box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .social-contact a.yt-link:hover {
+            color: #FF0000;
+            border-color: #FF0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+
         .info-item h4 { margin-bottom: 5px; }
         .info-item p { color: var(--text-gray); }
 
@@ -498,10 +678,18 @@
         }
 
         /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simplified for demo, ideally hamburger menu */
+        /* @media (max-width: 768px) {
+            .nav-links { display: none; } 
             header h1 { font-size: 2.5rem; }
             section { padding: 60px 20px; }
+        } */
+
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            header h1 { font-size: 2.8rem; }
+            section { padding: 60px 20px; }
+            .memories-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+            .memory-item.wide { grid-column: span 1; }
         }
     </style>
 </head>
@@ -613,10 +801,10 @@
             </div>
 
             <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
-                <img src="tofik.jpg" alt="Network Administration">
+                <img src="tofik.jpg" alt="Network Engineer & Administrator">
                 <div class="team-info">
                     <h3>Tofik Riyadi</h3>
-                    <span>Senior Network Engineer</span>
+                    <span>Senior Network Engineer & Administrator</span>
                     <p>("Quotes from the person if necessary")</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -627,10 +815,108 @@
             </div>
 
             <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
-                <img src="syarif.jpeg" alt="Fullstack Developer">
+                <img src="syarif.jpg" alt="Fullstack Developer">
                 <div class="team-info">
                     <h3>Muhammad Syarifuddin</h3>
                     <span>Senior Fullstack Developer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="reski.jpg" alt="Fullstack Developer">
+                <div class="team-info">
+                    <h3>Reski Alfan</h3>
+                    <span>Senior Fullstack Developer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="pri.jpg" alt="Fullstack Developer">
+                <div class="team-info">
+                    <h3>Pradnya Henry Primanto</h3>
+                    <span>Senior Fullstack Developer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="edwin.jpg" alt="Fullstack Developer">
+                <div class="team-info">
+                    <h3>Edwin Tri Hardtanto</h3>
+                    <span>Senior Fullstack Developer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="akaga.jpg" alt="Fullstack Developer">
+                <div class="team-info">
+                    <h3>Izzati Akaga</h3>
+                    <span>Senior Fullstack Developer</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="angga.jpg" alt="Hardware & Software Specialist">
+                <div class="team-info">
+                    <h3>Angga</h3>
+                    <span>Hardware & Software Specialist</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="choirul.jpg" alt="Hardware & Software Specialist">
+                <div class="team-info">
+                    <h3>Choirul Fatoni</h3>
+                    <span>Hardware & Software Specialist</span>
+                    <p>("Quotes from the person if necessary")</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="khojin.jpg" alt="Printer Specialist">
+                <div class="team-info">
+                    <h3>Mochammad Khojin</h3>
+                    <span>Printer Specialist</span>
                     <p>("Quotes from the person if necessary")</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -669,7 +955,7 @@
             </div>
 
             <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
-                <img src="rasyid.jpg" alt="Junior Fullstack">
+                <img src="rasyid.jpg" alt="IT Support">
                 <div class="team-info">
                     <h3>Rasyiddin Permanaputra</h3>
                     <span>IT Support</span>
@@ -682,10 +968,10 @@
                 </div>
             </div>
 
-            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
-                <img src="rasyid.jpg" alt="Junior Fullstack">
+            <!-- <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="krisna.jpeg" alt="IT Support">
                 <div class="team-info">
-                    <h3>Rasyiddin Permanaputra</h3>
+                    <h3>Maulida Krisna Tri Atmaja</h3>
                     <span>IT Support</span>
                     <p>"("Quotes from the person if necessary")"</p>
                     <div class="social-icons">
@@ -694,8 +980,59 @@
                         <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
+            </div> -->
+
+        </div>
+    </section>
+
+    <section id="memories">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Agenda Kami</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="memories-grid">
+            <div class="memory-card" data-aos="zoom-in">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" alt="Meeting">
+                <div class="memory-overlay">
+                    <p>Rapat Koordinasi ITISI 2024</p>
+                </div>
             </div>
 
+            <div class="memory-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800" alt="Project">
+                <div class="memory-overlay">
+                    <p>UAT Bridging System Nasional</p>
+                </div>
+            </div>
+
+            <div class="memory-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800" alt="Outing">
+                <div class="memory-overlay">
+                    <p>Team Building & Outbound</p>
+                </div>
+            </div>
+
+            <div class="memory-card" data-aos="zoom-in" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="Dev">
+                <div class="memory-overlay">
+                    <p>Deployment Night - Go Live!</p>
+                </div>
+            </div>
+
+            <div class="memory-card" data-aos="zoom-in" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800" alt="Workshop">
+                <div class="memory-overlay">
+                    <p>Internal Tech Workshop</p>
+                </div>
+            </div>
+            
+            <div class="memory-card" data-aos="zoom-in" data-aos-delay="500">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800" alt="Office">
+                <div class="memory-overlay">
+                    <p>Suasana Kerja ITISI</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -734,6 +1071,14 @@
                         <h4>Jam Kerja</h4>
                         <p>Always On (T&C Apply)</p>
                     </div>
+                </div>
+                <div class="social-contact">
+                    <a href="https://instagram.com/itisi_account" target="_blank" class="ig-link" title="Instagram ITISI">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@itisi_channel" target="_blank" class="yt-link" title="YouTube ITISI">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
 
