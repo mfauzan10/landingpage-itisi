@@ -320,73 +320,66 @@
         }
 
         /* --- Daftar Pegawai (Team) --- */
-        /* --- Update CSS Team Grid (Max 4 Row) --- */
+        /* --- DAFTAR PEGAWAI (TEAM) REVISI RASIO FOTO --- */
         /* .team-grid {
-            display: grid;
-            align-items: center;
-            justify-content: center;
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 30px;
+            display: flex;
+            justify-content: center; 
+            flex-wrap: wrap;
+            gap: 15px;
         } */
 
+        /* --- UPDATE TEAM GRID (MARGIN LEBIH TIPIS) --- */
         .team-grid {
             display: flex;
             justify-content: center; 
-            flex-wrap: wrap;         
-            gap: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+            
+            /* Kita naikkan max-width agar list card lebih melebar ke pinggir */
+            max-width: 1400px; 
+            margin: 0 auto;
+            
+            /* Padding internal diperkecil agar di layar sedang tetap terlihat mepet */
+            padding: 0 10px; 
         }
-
-        /* Responsive Breakpoints (Agar rapi di layar kecil) */
-        
-        /* Tablet/Laptop Kecil (dibawah 1024px): Ubah jadi 2 kolom */
-        @media (max-width: 1024px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* HP (dibawah 600px): Ubah jadi 1 kolom (full width) */
-        @media (max-width: 600px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        /* .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        } */
 
         .team-card {
-            /* new update 2 top settings */
-            flex: 0 1 calc(25% - 30px);
-            min-width: 250px;
+            /* Desktop: 6 kolom */
+            flex: 0 1 calc(16.666% - 15px);
+            /* Batas minimal agar tidak terlalu gepeng di layar nanggung */
+            min-width: 170px; 
+            
+            /* --- BAGIAN PENTING --- */
+            /* Kita HAPUS height fix (pixel) */
+            /* Kita gunakan Rasio 3:4 (standar pas foto portrait) */
+            /* Ini akan otomatis membuat tingginya pas, tidak terlalu tinggi, tidak terpotong */
+            aspect-ratio: 3 / 4;
+            /* ---------------------- */
+            
             position: relative;
-            height: 350px;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: #0a0a0a; /* Warna background jaga-jaga */
         }
 
         .team-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Foto akan mengisi penuh kotaknya */
             transition: 0.5s;
-            /* filter: grayscale(100%); */
             filter: grayscale(0%);
         }
 
         .team-card:hover img {
             transform: scale(1.1);
-            /* filter: grayscale(0%); */
             filter: grayscale(100%);
         }
 
         .team-info {
             position: absolute;
-            bottom: -100%; /* Hidden initially */
+            bottom: -100%;
             left: 0;
             width: 100%;
             height: 100%;
@@ -397,7 +390,7 @@
             align-items: center;
             transition: 0.4s ease-in-out;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             backdrop-filter: blur(5px);
         }
 
@@ -405,9 +398,45 @@
             bottom: 0;
         }
 
-        .team-info h3 { color: var(--primary); margin-bottom: 5px; }
-        .team-info span { font-size: 0.9rem; color: #fff; margin-bottom: 15px; display: block; }
-        .team-info p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 20px; }
+        .team-info h3 { color: var(--primary); font-size: 1rem; margin-bottom: 5px; }
+        .team-info span { font-size: 0.75rem; color: #fff; margin-bottom: 10px; display: block; }
+        /* Quote disembunyikan di mode 6 kolom agar rapi */
+        .team-info p { font-size: 0.7rem; color: var(--text-gray); display: none; } 
+        
+        .social-icons a {
+            color: #fff;
+            margin: 0 5px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENT --- */
+        /* PENTING: Di sini kita TIDAK PERLU mengatur height lagi */
+        /* Karena aspect-ratio akan otomatis menyesuaikan tingginya */
+        
+        /* Laptop Kecil (Jadi 4 kolom) */
+        @media (max-width: 1100px) {
+            .team-card {
+                flex: 0 1 calc(25% - 15px);
+            }
+            .team-info p { display: block; } /* Munculkan quote */
+        }
+
+        /* Tablet (Jadi 3 kolom) */
+        @media (max-width: 868px) {
+            .team-card {
+                flex: 0 1 calc(33.333% - 15px);
+            }
+        }
+
+        /* HP (Jadi 2 kolom seperti di aplikasi HP pada umumnya) */
+        @media (max-width: 580px) {
+            .team-card {
+                flex: 0 1 calc(50% - 15px);
+            }
+            .team-info h3 { font-size: 0.9rem; }
+            .team-info p { display: none; } /* Sembunyikan quote di HP */
+        }
         
         .social-icons a {
             color: #fff;
