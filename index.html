@@ -693,6 +693,78 @@
             .memories-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
             .memory-item.wide { grid-column: span 1; }
         }
+
+        /* --- PERBAIKAN RESPONSIF TOTAL --- */
+
+        @media (max-width: 768px) {
+            /* 1. Kurangi padding section agar konten punya ruang di HP */
+            section {
+                padding: 50px 15px !important;
+            }
+
+            /* 2. Pastikan Container mengisi penuh layar dan rata tengah */
+            .team-grid, .memories-grid, .contact-container {
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                justify-content: center !important;
+            }
+
+            /* 3. Pasukan Kami: Buat jadi 2 KOLOM BESAR */
+            .team-card {
+                /* flex: 1 1 membuat kartu mengisi ruang kosong */
+                flex: 1 1 40% !important; 
+                max-width: 46% !important;
+                min-width: 140px !important;
+                margin: 5px !important;
+            }
+
+            /* 4. Contact Us: Paksa tumpuk vertikal dan hilangkan margin kiri */
+            .contact-container {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 20px !important;
+            }
+
+            .contact-info, .contact-map {
+                flex: 1 1 100% !important;
+                width: 100% !important;
+                min-width: 0 !important; /* Penting: mencegah iframe "ngeyel" keluar layar */
+                text-align: center !important;
+            }
+
+            .info-item {
+                flex-direction: column !important;
+                align-items: center !important;
+                margin-bottom: 20px !important;
+            }
+
+            .info-item i {
+                margin-right: 0 !important;
+                margin-bottom: 10px !important;
+            }
+
+            .social-contact {
+                justify-content: center !important;
+                margin-bottom: 30px !important;
+            }
+
+            /* 5. Map Fix: Pastikan lebar 100% dan tidak nabrak samping */
+            .contact-map iframe {
+                width: 100% !important;
+                height: 250px !important;
+                border-radius: 15px !important;
+            }
+        }
+
+        /* Untuk HP Sangat Kecil (Layar di bawah 400px) */
+        @media (max-width: 400px) {
+            .team-card {
+                flex: 1 1 100% !important; /* Jadi 1 kolom full agar foto sangat jelas */
+                max-width: 280px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1079,9 +1151,9 @@
             </div>
 
             <div class="memory-card" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800" alt="Outing">
+                <img src="karimun-jawa.jpeg" alt="Outing">
                 <div class="memory-overlay">
-                    <p>Team Building & Outbound</p>
+                    <p>Team Building & Outbound at Karimun Jawa</p>
                 </div>
             </div>
 
