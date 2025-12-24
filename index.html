@@ -402,7 +402,7 @@
         .team-info h3 { color: var(--primary); font-size: 1rem; margin-bottom: 5px; }
         .team-info span { font-size: 0.75rem; color: #fff; margin-bottom: 10px; display: block; }
         /* Quote disembunyikan di mode 6 kolom agar rapi */
-        .team-info p { font-size: 0.7rem; color: var(--text-gray); display: none; } 
+        .team-info p { font-size: 0.7rem; color: var(--text-gray); } 
         
         .social-icons a {
             color: #fff;
@@ -678,6 +678,72 @@
             font-size: 0.9rem;
             color: var(--text-gray);
         }
+        
+        /* --- AWARDS SECTION --- */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .award-card {
+            background: var(--glass);
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+        }
+
+        .award-card:hover::before {
+            opacity: 1;
+        }
+
+        .award-icon {
+            font-size: 50px;
+            color: #ffd700; /* Warna Emas */
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .award-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .award-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* Responsive Fix untuk Awards */
+        @media (max-width: 768px) {
+            .award-card {
+                padding: 20px;
+            }
+        }
 
         /* --- Responsive --- */
         /* @media (max-width: 768px) {
@@ -695,7 +761,6 @@
         }
 
         /* --- PERBAIKAN RESPONSIF TOTAL --- */
-
         @media (max-width: 768px) {
             /* 1. Kurangi padding section agar konten punya ruang di HP */
             section {
@@ -1233,6 +1298,39 @@
         </div>
     </section>
 
+    <section id="awards" style="background: radial-gradient(circle at bottom, #111 0%, #0a0a0a 100%);">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Penghargaan</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card" data-aos="fade-up">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <h3>Juara 3 Jatim Digital Excellence Awards 2025 Kategori Rumah Sakit Provinsi Jawa Timur</h3>
+                <p>Penghargaan atas Penerapan Tata Kelola Teknologi Digital dan Penguatan Keamanan Siber yang Berkelanjutan</p>
+            </div>
+
+            <!-- <div class="award-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                <h3>Certified Security Expert</h3>
+                <p>Pengakuan resmi atas standar keamanan data dan infrastruktur jaringan tingkat lanjut.</p>
+            </div> -->
+
+            <div class="award-card" data-aos="fade-up">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <h3>Nominasi Innovation Government Award 2025 Provinsi Jawa Timur</h3>
+                <p>Aplikasi Virtual Tour Rumah Sakit dr Soedono Madiun berbasis Website sebagai Pengenalan Awal Lingkungan Rumah Sakit</p>
+            </div>
+
+            <div class="award-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="award-icon"><i class="fas fa-award"></i></div>
+                <h3>Top Digital Partner</h3>
+                <p>Mitra teknologi terpercaya dalam transformasi digital untuk sektor instansi pemerintahan.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="section-title" data-aos="fade-up">
             <h2>Hubungi Kami</h2>
@@ -1270,10 +1368,10 @@
                     </div>
                 </div>
                 <div class="social-contact">
-                    <a href="https://instagram.com/itisi_account" target="_blank" class="ig-link" title="Instagram ITISI">
+                    <a href="https://www.instagram.com/itisi_rssm/" target="_blank" class="ig-link" title="Instagram ITISI">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://youtube.com/@itisi_channel" target="_blank" class="yt-link" title="YouTube ITISI">
+                    <a href="https://www.youtube.com/@ipderssm3234" target="_blank" class="yt-link" title="YouTube ITISI">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
