@@ -317,7 +317,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="video-frame">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WgARLzWYPZo" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZUXZ1dm34Dw" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -335,30 +335,30 @@
             <div class="line"></div>
         </div>
         <div class="services-grid">
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card" data-aos="fade-up">
                 <i class="fas fa-network-wired service-icon"></i>
                 <h3>Bridging System</h3>
-                <p>Integrasi seamless antar sistem (API/V-Claim) untuk efisiensi data rumah sakit dan perusahaan.</p>
+                <p>Integrasi seamless antar sistem (API/V-Claim) untuk efisiensi data rumah sakit.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-code service-icon"></i>
                 <h3>Software Dev</h3>
-                <p>Pengembangan aplikasi berbasis web dan desktop yang custom sesuai kebutuhan bisnis yang kompleks.</p>
+                <p>Pengembangan aplikasi berbasis web dan desktop yang custom sesuai kebutuhan bisnis.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-server service-icon"></i>
                 <h3>Networking</h3>
                 <p>Perancangan infrastruktur jaringan, keamanan data, dan maintenance server yang handal.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <i class="fas fa-mobile-alt service-icon"></i>
                 <h3>Mobile Apps</h3>
                 <p>Pembuatan aplikasi Android & iOS dengan UI/UX modern dan performa tinggi.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                 <i class="fas fa-photo-video service-icon"></i>
                 <h3>Multimedia</h3>
-                <p>Desain grafis, video editing, dan konten kreatif digital untuk branding perusahaan.</p>
+                <p>Desain grafis, video editing, dan konten kreatif digital untuk branding instansi.</p>
             </div>
         </div>
     </section>
@@ -471,7 +471,7 @@
                 <p>Kategori Rumah Sakit Provinsi Jawa Timur</p>
             </div>
             <div class="award-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
                 <h3>Nominasi Innovation Gov Award 2025</h3>
                 <p>Aplikasi Virtual Tour RS dr. Soedono Madiun</p>
             </div>
@@ -493,13 +493,14 @@
                 <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Lokasi</h4><p>Gedung Lantai 2, RS dr. Soedono</p></div></div>
                 <div class="info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>ipderssm2020@gmail.com</p></div></div>
                 <div class="info-item"><i class="fas fa-phone-alt"></i><div><h4>Telepon</h4><p>(+62) 8123425167</p></div></div>
+                <div class="info-item"><i class="fas fa-clock"></i><div><h4>Jam Kerja</h4><p>Always On (T&C Apply)</p></div></div>
                 <div class="social-contact">
                     <a href="https://www.instagram.com/itisi_rssm/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.youtube.com/@ipderssm3234" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.545228514101!2d111.52473217489242!3d-7.624387675390772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79be93952f442b%3A0x6339f4088031e408!2sRSUD%20dr.%20Soedono%20Madiun!5e0!3m2!1sid!2sid!4v1703380000000!5m2!1sid!2sid" width="100%" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.5828230559795!2d111.5230!3d-7.6200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMzcnMzQuNiJTIDExMcKwMzEnMjIuOCJF!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -509,18 +510,15 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Init AOS
         AOS.init({ once: true, duration: 800 });
 
-        // Init Swiper Video
+        // Swiper INIT (AUTOPLAY OFF)
         var swiper = new Swiper(".mySwiper", {
             loop: true,
-            autoplay: { delay: 6000, disableOnInteraction: false },
             pagination: { el: ".swiper-pagination", clickable: true },
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
         });
 
-        // Navbar Scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
