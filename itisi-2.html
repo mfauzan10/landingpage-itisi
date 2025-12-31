@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITISI - Future Tech Solutions</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
@@ -48,14 +49,27 @@
             z-index: 1000;
             background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
         }
 
-        .logo { font-size: 24px; font-weight: 700; letter-spacing: 2px; color: var(--text-light); }
-        .logo span { color: var(--primary); }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
 
-        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-light);
@@ -65,7 +79,10 @@
             letter-spacing: 1px;
             transition: 0.3s;
         }
-        .nav-links a:hover { color: var(--primary); }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
         /* --- Header / Hero --- */
         header {
@@ -81,8 +98,11 @@
 
         .bg-grid {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -101,8 +121,18 @@
             flex-wrap: wrap;
         }
 
-        .hero-text { flex: 1; min-width: 300px; }
-        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: #fff; }
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
         .hero-text h1 span {
             background: linear-gradient(90deg, var(--primary), #fff);
             -webkit-background-clip: text;
@@ -113,7 +143,8 @@
         .hero-text p {
             font-size: 1.1rem;
             color: var(--text-gray);
-            margin-bottom: 50px; /* Jarak lega ke button */
+            margin-bottom: 55px;
+            /* Jarak lega ke button */
             line-height: 1.6;
             max-width: 90%;
         }
@@ -131,11 +162,26 @@
             transition: 0.4s;
             border-radius: 5px;
         }
-        .btn-neon:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
+
+        .btn-neon:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary);
+        }
 
         /* --- Swiper Video --- */
-        .hero-video { flex: 1.2; width: 100%; min-width: 300px; }
-        .swiper { width: 100%; height: 100%; padding-bottom: 60px !important; }
+        .hero-video {
+            flex: 1.2;
+            width: 100%;
+            min-width: 300px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+            padding-bottom: 60px !important;
+        }
+
         .video-frame {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -147,81 +193,363 @@
             transition: 0.3s;
         }
 
-        .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; transform: scale(0.6); }
-        .swiper-pagination-bullet { background: var(--primary) !important; }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--primary) !important;
+            transform: scale(0.6);
+        }
 
-        /* --- Section Styling --- */
-        section { padding: 100px 50px; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
-        .section-title .line { width: 60px; height: 4px; background: var(--primary); margin: 0 auto; border-radius: 2px; }
+        .swiper-pagination-bullet {
+            background: var(--primary) !important;
+        }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .service-card { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; text-align: center; border-radius: 15px; transition: 0.4s; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .service-icon { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+        /* --- Services Grid --- */
+        section {
+            padding: 100px 50px;
+        }
 
-        /* --- Team Grid --- */
-        .team-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; max-width: 1400px; margin: 0 auto; }
-        .team-card { flex: 0 1 calc(16.666% - 15px); min-width: 170px; aspect-ratio: 3 / 4; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.5); background: #0a0a0a; }
-        .team-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .team-card:hover img { transform: scale(1.1); filter: grayscale(100%); }
-        .team-info { position: absolute; bottom: -100%; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.4s ease-in-out; text-align: center; padding: 15px; backdrop-filter: blur(5px); }
-        .team-card:hover .team-info { bottom: 0; }
-        .team-info h3 { color: var(--primary); font-size: 1rem; margin-bottom: 5px; }
-        .team-info span { font-size: 0.75rem; color: #fff; margin-bottom: 10px; display: block; }
-        .team-info p { font-size: 0.75rem; color: var(--text-gray); display: block; margin-top: 5px; line-height: 1.3; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-        /* --- Memories --- */
-        .memories-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .memory-card { flex: 0 1 calc(33.333% - 20px); min-width: 300px; aspect-ratio: 16 / 9; position: relative; border-radius: 15px; overflow: hidden; background: #000; }
-        .memory-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
-        .memory-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%); opacity: 0; transition: 0.4s; }
-        .memory-card:hover .memory-overlay { opacity: 1; }
-        .memory-overlay p { position: absolute; bottom: 20px; left: 20px; right: 20px; color: var(--primary); font-weight: 600; transform: translateY(30px); transition: 0.4s; }
-        .memory-card:hover .memory-overlay p { transform: translateY(0); font-size: 0.85rem; }
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* --- Team Grid (18 Personel) --- */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            flex: 0 1 calc(16.666% - 15px);
+            min-width: 170px;
+            aspect-ratio: 3 / 4;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: #0a0a0a;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .team-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(100%);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s ease-in-out;
+            text-align: center;
+            padding: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .team-card:hover .team-info {
+            bottom: 0;
+        }
+
+        .team-info h3 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .team-info span {
+            font-size: 0.75rem;
+            color: #fff;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .team-info p {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* --- Agenda (Memories) --- */
+        .memories-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .memory-card {
+            flex: 0 1 calc(33.333% - 20px);
+            min-width: 300px;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+
+        .memory-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .memory-card:hover .memory-overlay {
+            opacity: 1;
+        }
+
+        .memory-overlay p {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: 0.4s;
+        }
+
+        .memory-card:hover .memory-overlay p {
+            transform: translateY(0);
+            font-size: 0.85rem;
+        }
 
         /* --- Awards --- */
-        .awards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .award-card { flex: 0 1 350px; background: var(--glass); border: 1px solid rgba(0, 210, 255, 0.1); padding: 30px; border-radius: 20px; text-align: center; transition: 0.4s; position: relative; }
-        .award-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15); }
-        .award-icon { font-size: 50px; color: #ffd700; margin-bottom: 20px; }
+        .awards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .award-card {
+            flex: 0 1 350px;
+            background: var(--glass);
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+        }
+
+        .award-icon {
+            font-size: 50px;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
 
         /* --- Contact --- */
-        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .contact-info, .contact-map { flex: 1; min-width: 300px; }
-        .info-item { display: flex; align-items: center; margin-bottom: 30px; }
-        .info-item i { font-size: 24px; color: var(--primary); margin-right: 20px; width: 40px; text-align: center; }
-        .social-contact { display: flex; gap: 20px; margin-top: 20px; }
-        .social-contact a { font-size: 24px; color: #fff; transition: 0.3s; }
-        .social-contact a:hover { color: var(--primary); }
-        .contact-map iframe { width: 100%; height: 350px; border-radius: 15px; border: none; filter: invert(90%) hue-rotate(180deg); }
-
-        footer { text-align: center; padding: 30px; background: #000; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.1); }
-
-        /* --- Responsive Perbaikan --- */
-        @media (max-width: 968px) {
-            section { padding: 60px 20px !important; }
-            .container-split { flex-direction: column-reverse; text-align: center; }
-            .hero-text h1 { font-size: 2.8rem; }
-            .hero-text p { margin: 0 auto 40px auto; }
-            
-            /* Frame Video HP diperbesar agar swipe lebih lega */
-            .hero-video { flex: 1; width: 100%; padding: 0 10px; }
-            .video-frame { aspect-ratio: 16 / 9; width: 100%; }
-
-            .team-card { flex: 0 1 calc(50% - 15px); }
-            .contact-container { flex-direction: column; align-items: center; padding: 20px; }
-            .contact-info, .contact-map { width: 100%; text-align: center; min-width: 0; }
-            .info-item { flex-direction: column; }
-            .info-item i { margin-right: 0; margin-bottom: 10px; }
-            .social-contact { justify-content: center; }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        .contact-info,
+        .contact-map {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .social-contact {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-contact a {
+            font-size: 24px;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .social-contact a:hover {
+            color: var(--primary);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #000;
+            color: var(--text-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Responsive HP --- */
+        @media (max-width: 968px) {
+            section {
+                padding: 60px 20px !important;
+            }
+
+            .container-split {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 40px auto;
+            }
+
+            .hero-video {
+                flex: 1;
+                width: 100%;
+                padding: 0 5px;
+            }
+
+            .video-frame {
+                aspect-ratio: 16 / 9;
+                width: 100%;
+            }
+
+            .team-card {
+                flex: 0 1 calc(50% - 15px);
+            }
+
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .contact-info,
+            .contact-map {
+                width: 100%;
+                text-align: center;
+                min-width: 0;
+            }
+
+            .info-item {
+                flex-direction: column;
+            }
+
+            .social-contact {
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 480px) {
-            .team-card { flex: 0 1 100%; max-width: 280px; margin: 0 auto; }
+            .team-card {
+                flex: 0 1 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .award-card {
+                flex: 0 1 100%;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav>
@@ -249,12 +577,14 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="video-frame">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZUXZ1dm34Dw" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZUXZ1dm34Dw"
+                                    frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="video-frame">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WgARLzWYPZo" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WgARLzWYPZo"
+                                    frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -267,191 +597,235 @@
     </header>
 
     <section id="services">
-        <div class="section-title" data-aos="fade-up"><h2>Apa Yang Dikerjakan</h2><div class="line"></div></div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Apa Yang Dikerjakan</h2>
+            <div class="line"></div>
+        </div>
         <div class="services-grid">
-            <div class="service-card" data-aos="fade-up">
-                <i class="fas fa-network-wired service-icon"></i>
+            <div class="service-card" data-aos="fade-up"><i class="fas fa-network-wired service-icon"></i>
                 <h3>Bridging System</h3>
-                <p>Integrasi seamless antar sistem (API/V-Claim) untuk efisiensi data rumah sakit.</p>
+                <p>Integrasi seamless antar sistem (API/V-Claim) untuk efisiensi data RS.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-code service-icon"></i>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-code service-icon"></i>
                 <h3>Software Dev</h3>
-                <p>Pengembangan aplikasi berbasis web dan desktop yang custom sesuai kebutuhan bisnis.</p>
+                <p>Pengembangan aplikasi berbasis web dan desktop yang custom.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-server service-icon"></i>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-server service-icon"></i>
                 <h3>Networking</h3>
-                <p>Perancangan infrastruktur jaringan, keamanan data, dan maintenance server yang handal.</p>
+                <p>Perancangan infrastruktur jaringan dan maintenance server.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-mobile-alt service-icon"></i>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300"><i
+                    class="fas fa-mobile-alt service-icon"></i>
                 <h3>Mobile Apps</h3>
-                <p>Pembuatan aplikasi Android & iOS dengan UI/UX modern dan performa tinggi.</p>
+                <p>Pembuatan aplikasi Android & iOS dengan UI/UX modern.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-photo-video service-icon"></i>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400"><i
+                    class="fas fa-photo-video service-icon"></i>
                 <h3>Multimedia</h3>
-                <p>Desain grafis, video editing, dan konten kreatif digital untuk branding instansi.</p>
+                <p>Desain grafis, video editing, dan konten kreatif digital branding.</p>
             </div>
         </div>
     </section>
 
     <section id="team">
-        <div class="section-title" data-aos="fade-up"><h2>Pasukan Kami</h2><div class="line"></div></div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Pasukan Kami</h2>
+            <div class="line"></div>
+        </div>
         <div class="team-grid">
-            <div class="team-card" data-aos="zoom-in">
-                <img src="sigit.jpg" alt="Sigit">
-                <div class="team-info"><h3>Sigit Robiyanto</h3><span>Head of ITISI</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="sigit.jpg" alt="Sigit">
+                <div class="team-info">
+                    <h3>Sigit Robiyanto</h3><span>Head of ITISI</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="tofik.jpg" alt="Tofik">
-                <div class="team-info"><h3>Tofik Riyadi</h3><span>Senior Network Engineer</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="tofik.jpg" alt="Tofik">
+                <div class="team-info">
+                    <h3>Tofik Riyadi</h3><span>Senior Network Engineer</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="syarif.jpg" alt="Syarif">
-                <div class="team-info"><h3>M. Syarifuddin</h3><span>Senior Fullstack Dev</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="syarif.jpg" alt="Syarif">
+                <div class="team-info">
+                    <h3>M. Syarifuddin</h3><span>Senior Fullstack Dev</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="reski.jpg" alt="Reski">
-                <div class="team-info"><h3>Reski Alfan</h3><span>Senior Fullstack Dev</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="reski.jpg" alt="Reski">
+                <div class="team-info">
+                    <h3>Reski Alfan</h3><span>Senior Fullstack Dev</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="pri.jpg" alt="Henry">
-                <div class="team-info"><h3>P. Henry Primanto</h3><span>Senior Fullstack Dev</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="pri.jpg" alt="Henry">
+                <div class="team-info">
+                    <h3>P. Henry Primanto</h3><span>Senior Fullstack Dev</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="edwin.jpg" alt="Edwin">
-                <div class="team-info"><h3>Edwin Tri H.</h3><span>Senior Fullstack Dev</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="edwin.jpg" alt="Edwin">
+                <div class="team-info">
+                    <h3>Edwin Tri H.</h3><span>Senior Fullstack Dev</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="akaga.jpg" alt="Akaga">
-                <div class="team-info"><h3>Izzati Akaga</h3><span>Senior Fullstack Dev</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="akaga.jpg" alt="Akaga">
+                <div class="team-info">
+                    <h3>Izzati Akaga</h3><span>Senior Fullstack Dev</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="angga.jpg" alt="Angga">
-                <div class="team-info"><h3>Angga</h3><span>IT Specialist</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="angga.jpg" alt="Angga">
+                <div class="team-info">
+                    <h3>Angga</h3><span>IT Specialist</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="choirul.jpg" alt="Choirul">
-                <div class="team-info"><h3>Choirul Fatoni</h3><span>Network Engineer</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="choirul.jpg" alt="Choirul">
+                <div class="team-info">
+                    <h3>Choirul Fatoni</h3><span>Network Engineer</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="salya.jpg" alt="Salya">
-                <div class="team-info"><h3>N. Dewi Salyasari</h3><span>IT Specialist</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="salya.jpg" alt="Salya">
+                <div class="team-info">
+                    <h3>N. Dewi Salyasari</h3><span>IT Specialist</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="fatihah.jpg" alt="Fatihah">
-                <div class="team-info"><h3>Fatihah</h3><span>Data Processing</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="fatihah.jpg" alt="Fatihah">
+                <div class="team-info">
+                    <h3>Fatihah</h3><span>Data Processing</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="khojin.jpg" alt="Khojin">
-                <div class="team-info"><h3>M. Khojin</h3><span>Printer Specialist</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="khojin.jpg" alt="Khojin">
+                <div class="team-info">
+                    <h3>M. Khojin</h3><span>Printer Specialist</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="fauzan.jpeg" alt="Fauzan">
-                <div class="team-info"><h3>Muhammad Fauzan</h3><span>Junior Fullstack Dev</span><p>"Alon-alon waton kelakon"</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="fauzan.jpeg" alt="Fauzan">
+                <div class="team-info">
+                    <h3>Muhammad Fauzan</h3><span>Junior Fullstack Dev</span>
+                    <p>"Alon-alon waton kelakon"</p>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="rizqi.jpeg" alt="Rizqi">
-                <div class="team-info"><h3>Rizqi Ahmad A.</h3><span>Junior Fullstack Dev</span><p>"Wiwiting Tresno..."</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="rizqi.jpeg" alt="Rizqi">
+                <div class="team-info">
+                    <h3>Rizqi Ahmad A.</h3><span>Junior Fullstack Dev</span>
+                    <p>"Wiwiting Tresno..."</p>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="rasyid.jpg" alt="Rasyid">
-                <div class="team-info"><h3>Rasyiddin P.</h3><span>IT Support</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="rasyid.jpg" alt="Rasyid">
+                <div class="team-info">
+                    <h3>Rasyiddin P.</h3><span>IT Support</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="krisna.jpeg" alt="Krisna">
-                <div class="team-info"><h3>M. Krisna Tri A.</h3><span>Junior Software Dev</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="krisna.jpeg" alt="Krisna">
+                <div class="team-info">
+                    <h3>Krisna Tri Atmaja</h3><span>Junior Software Dev</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="bima.jpeg" alt="Bima">
-                <div class="team-info"><h3>Bima Hayu N.</h3><span>Fullstack & Support</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="bima.jpeg" alt="Bima">
+                <div class="team-info">
+                    <h3>Bima Hayu N.</h3><span>Fullstack & Support</span>
+                </div>
             </div>
-            <div class="team-card" data-aos="zoom-in">
-                <img src="hani.jpg" alt="Hani">
-                <div class="team-info"><h3>Fanny Nugrahany</h3><span>Frontend & Android</span><p>("Quotes")</p></div>
+            <div class="team-card" data-aos="zoom-in"><img src="hani.jpg" alt="Hani">
+                <div class="team-info">
+                    <h3>Fanny Nugrahany</h3><span>Frontend & Android</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="memories">
-        <div class="section-title" data-aos="fade-up"><h2>Agenda Kami</h2><div class="line"></div></div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Agenda Kami</h2>
+            <div class="line"></div>
+        </div>
         <div class="memories-grid">
-            <div class="memory-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" alt="Meeting"><div class="memory-overlay"><p>Rapat Koordinasi ITISI 2024</p></div></div>
-            <div class="memory-card" data-aos="zoom-in"><img src="server-opt.jpeg" alt="Project"><div class="memory-overlay"><p>Server Optimization Setting</p></div></div>
-            <div class="memory-card" data-aos="zoom-in"><img src="karimun-jawa.jpeg" alt="Outing"><div class="memory-overlay"><p>Team Building at Karimun Jawa</p></div></div>
-            <div class="memory-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="Dev"><div class="memory-overlay"><p>Deployment Night - Go Live!</p></div></div>
-            <div class="memory-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800" alt="Workshop"><div class="memory-overlay"><p>Internal Tech Workshop</p></div></div>
-            <div class="memory-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800" alt="Office"><div class="memory-overlay"><p>Suasana Kerja ITISI</p></div></div>
+            <div class="memory-card" data-aos="zoom-in"><img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800">
+                <div class="memory-overlay">
+                    <p>Rapat Koordinasi ITISI 2024</p>
+                </div>
+            </div>
+            <div class="memory-card" data-aos="zoom-in"><img src="server-opt.jpeg">
+                <div class="memory-overlay">
+                    <p>Server Optimization Setting</p>
+                </div>
+            </div>
+            <div class="memory-card" data-aos="zoom-in"><img src="karimun-jawa.jpeg">
+                <div class="memory-overlay">
+                    <p>Team Building at Karimun Jawa</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="awards" style="background: radial-gradient(circle at bottom, #111 0%, #0a0a0a 100%);">
-        <div class="section-title" data-aos="fade-up"><h2>Penghargaan</h2><div class="line"></div></div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Penghargaan</h2>
+            <div class="line"></div>
+        </div>
         <div class="awards-grid">
             <div class="award-card" data-aos="fade-up">
                 <div class="award-icon"><i class="fas fa-trophy"></i></div>
-                <h3>Juara 3 Jatim Digital Excellence Awards 2025 Kategori Rumah Sakit Provinsi Jawa Timur</h3>
-                <p>Penghargaan atas Penerapan Tata Kelola Teknologi Digital dan Penguatan Keamanan Siber yang Berkelanjutan</p>
+                <h3>Juara 3 Jatim Digital Excellence 2025</h3>
+                <p>Penerapan Tata Kelola Teknologi Digital RS Jawa Timur.</p>
             </div>
-            
-            <div class="award-card" data-aos="fade-up">
-                <div class="award-icon"><i class="fas fa-trophy"></i></div>
-                <h3>Nominasi Innovation Government Award 2025 Provinsi Jawa Timur</h3>
-                <p>Aplikasi Virtual Tour Rumah Sakit dr Soedono Madiun berbasis Website sebagai Pengenalan Awal Lingkungan Rumah Sakit</p>
+            <div class="award-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                <h3>Nominasi IGA Award 2025</h3>
+                <p>Aplikasi Virtual Tour RS dr. Soedono Madiun.</p>
             </div>
-
             <div class="award-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="award-icon"><i class="fas fa-award"></i></div>
                 <h3>Top Digital Partner</h3>
-                <p>Mitra teknologi terpercaya dalam transformasi digital untuk sektor instansi pemerintahan.</p>
+                <p>Mitra teknologi terpercaya instansi pemerintahan.</p>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="section-title" data-aos="fade-up"><h2>Hubungi Kami</h2><div class="line"></div></div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Hubungi Kami</h2>
+            <div class="line"></div>
+        </div>
         <div class="contact-container" data-aos="flip-up">
             <div class="contact-info">
-                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Lokasi</h4><p>Gedung Lantai 2, RS dr. Soedono</p></div></div>
-                <div class="info-item"><i class="fas fa-phone-alt"></i><div><h4>Telepon</h4><p>(+62) 8123425167</p></div></div>
-                <div class="info-item"><i class="fas fa-clock"></i><div><h4>Jam Kerja</h4><p>Always On (T&C Apply)</p></div></div>
+                <div class="info-item"><i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Telepon</h4>
+                        <p>(+62) 8123425167</p>
+                    </div>
+                </div>
                 <div class="social-contact">
                     <a href="https://www.instagram.com/itisi_rssm/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.youtube.com/@ipderssm3234" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="contact-map">
-                <iframe src="https://maps.google.com/maps?q=-7.626278682223126,111.52399355949244&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <div class="contact-map"><iframe
+                    src="https://maps.google.com/maps?q=-7.626278682223126,111.52399355949244&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" allowfullscreen="" loading="lazy"></iframe></div>
         </div>
     </section>
 
-    <footer><p>© Copyrights by ITISI 2025. All Rights Reserved.</p></footer>
+    <footer>
+        <p>© Copyrights by ITISI 2025. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        // Swiper INIT dengan Logika Auto-Pause
+        // Swiper INIT dengan Fitur Auto-Pause
         var swiper = new Swiper(".mySwiper", {
             loop: true,
             pagination: { el: ".swiper-pagination", clickable: true },
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
             on: {
                 slideChange: function () {
-                    // Berhenti paksa semua video saat digeser
                     document.querySelectorAll('.swiper-slide iframe').forEach(iframe => {
                         var src = iframe.src;
-                        iframe.src = src; 
+                        iframe.src = src;
                     });
                 }
             }
         });
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
                 nav.style.background = "rgba(10, 10, 10, 0.95)";
@@ -463,4 +837,5 @@
         });
     </script>
 </body>
+
 </html>
