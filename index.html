@@ -230,11 +230,11 @@
 
         .video-frame {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Menjaga rasio video youtube */
+            aspect-ratio: 16 / 9;
             border: 2px solid rgba(0, 210, 255, 0.3);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.15); /* Efek Glow Neon */
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
             transition: 0.3s;
             position: relative;
             background: #000;
@@ -913,7 +913,7 @@
                 <button class="btn-neon" onclick="location.href='#contact'">Start Project</button>
             </div>
 
-            <!-- <div class="hero-video" data-aos="fade-left" data-aos-duration="1000">
+            <div class="hero-video" data-aos="fade-left" data-aos-duration="1000">
                 <div class="video-frame">
                     <iframe 
                         width="100%" 
@@ -925,9 +925,9 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-            </div> -->
+            </div>
 
-            <div class="hero-video" data-aos="fade-left">
+            <!-- <div class="hero-video" data-aos="fade-left">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -947,7 +947,7 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </header>
 
@@ -1411,12 +1411,28 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>=
     <script>
         // Init Animation on Scroll
         AOS.init({
-            once: true, // Animasi hanya terjadi sekali saat scroll
+            //once: true, // Animasi hanya terjadi sekali saat scroll
             offset: 100,
             duration: 800,
+        });
+
+        // Swiper INIT dengan Fitur Auto-Pause
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            on: {
+                slideChange: function () {
+                    document.querySelectorAll('.swiper-slide iframe').forEach(iframe => {
+                        var src = iframe.src;
+                        iframe.src = src;
+                    });
+                }
+            }
         });
 
         // Simple Sticky Navbar Effect
