@@ -541,6 +541,14 @@
             color: var(--text-gray);
         }
 
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            header h1 { font-size: 2.8rem; }
+            section { padding: 60px 20px; }
+            .memories-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+            .memory-item.wide { grid-column: span 1; }
+        }
+
         /* --- PERBAIKAN RESPONSIF TOTAL --- */
         @media (max-width: 768px) {
             /* 1. Kurangi padding section agar konten punya ruang di HP */
